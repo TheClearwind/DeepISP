@@ -83,8 +83,6 @@ def criterion(y_hat, y):
 dataloader = DataLoader(train_data, shuffle=True, batch_size=config.batch_size)
 # 定义模型
 raw2rgb = Raw2Rgb(input_nc=4).to(device)
-# raw2rgb = DinkNet34(out_ch=3).to(device)
-# raw2rgb = NestedUNet(out_ch=3, input_channels=3, deep_supervision=True).to(device)
 raw2rgb.apply(weights_init)
 raw2rgb.train()
 if config.recover:
